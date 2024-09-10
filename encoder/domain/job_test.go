@@ -9,13 +9,13 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-func TestNesJob(t *testing.T) {
+func TestNewJob(t *testing.T) {
 	video := domain.NewVideo()
 	video.ID = uuid.NewV4().String()
 	video.FilePath = "path"
 	video.CreatedAt = time.Now()
 
-	job, err := domain.NewJob("output-bucket-path", "Converted", video)
+	job, err := domain.NewJob("path", "Converted", video)
 
 	require.NotNil(t, job)
 	require.Nil(t, err)
